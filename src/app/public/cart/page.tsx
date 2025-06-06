@@ -40,7 +40,7 @@ export default function CartBuy() {
 
                                 <div>
                                     <div className="flex flex-col">
-                                        <span className="text-[24px] font-black bg-gray-300 rounded-2xl w-46 text-center mb-4 mx-auto md:hidden">{item.name}</span>
+                                        <span className="text-[24px] text-black font-black bg-gray-300 rounded-2xl w-46 text-center mb-4 mx-auto md:hidden">{item.name}</span>
                                         <span className="text-center lg:text-[19px] font-medium">Preço: </span>
                                         <span className="text-2xl text-center font-semibold mb-6 lg:text-2xl lg:font-semibold lg:mb-0"> {(Number(item.price)).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</span>
                                     </div>

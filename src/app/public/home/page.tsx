@@ -134,7 +134,7 @@ export default function ListProductsPublic() {
 
 
         <section>
-          <h1 className="p-16 text-center text-3xl font-black mb-16 mt-10">Produtos Disponíveis</h1>
+          <h1 className="p-16 text-center text-3xl font-black mb-16 mt-10 text-black">Produtos Disponíveis</h1>
 
           {products.length === 0 ? (
             <p className="text-center text-lg text-gray-500">Nenhum produto disponível no momento.</p>
@@ -160,18 +160,18 @@ export default function ListProductsPublic() {
 
                   <div className="flex items-center justify-between px-6 py-2">
                     <section className="flex flex-col gap-1">
-                      <span className="text-[24px] font-black">{product.name}</span>
+                      <span className="text-[24px] font-black text-black">{product.name}</span>
                       <span className="text-[20px]">
-                        <span className="font-black">Preço:</span> R${" "}
+                        <span className="font-black text-black">Preço:</span> R${" "}
                         <span className="text-gray-600 font-black">{Number(product.price).toFixed(2)}</span>
                       </span>
                     </section>
 
                     <button
-                      className="flex items-center justify-center bg-gray-200 w-[40px] h-[48px] rounded-[8px] duration-300 transform transition-all hover:scale-110 hover:bg-gray-500 hover:text-white"
+                      className="flex items-center justify-center text-black bg-gray-200 w-[40px] h-[48px] rounded-[8px] duration-300 transform transition-all hover:scale-110 hover:bg-gray-500 hover:text-white"
                       onClick={() => handleAdd(product)}
                     >
-                      <Plus size={30} />
+                      <Plus size={30} className="text-black" />
                     </button>
                   </div>
                 </div>

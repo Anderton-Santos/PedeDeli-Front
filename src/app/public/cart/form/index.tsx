@@ -164,7 +164,7 @@ export function ValidateForm() {
             <input
               {...register("name")}
               type="text"
-              className="border border-black w-64 h-8 p-2"
+              className="border border-black w-64 h-8 p-2 text-black"
               placeholder="Digite seu nome completo"
             />
             {errors.name && <p className="text-red-500">{errors.name.message}</p>}
@@ -175,7 +175,7 @@ export function ValidateForm() {
             <input
               {...register("date")}
               type="date"
-              className="w-[70%] border p-1"
+              className="w-[70%] border border-black p-1"
             />
             {errors.date && <p className="text-red-500">{errors.date.message}</p>}
           </div>

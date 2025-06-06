@@ -175,7 +175,7 @@ export function ValidateForm() {
             <input
               {...register("date")}
               type="date"
-              className="w-[70%] border border-black p-1"
+              className="w-[70%] border border-black p-1 text-black"
             />
             {errors.date && <p className="text-red-500">{errors.date.message}</p>}
           </div>

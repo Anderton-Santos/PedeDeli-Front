@@ -112,7 +112,7 @@ export default function CartBuy() {
 
                 <div className="flex flex-col w-full lg:flex md:flex-col lg:w-[40%] h-screen p-6  gap-16 bg-[#381d2a]">
 
-                    <h1 className="text-[30px] text-white lg:text-white lg:text-[50px] font-black p-2 mt-4 ">Para melhor experiência preencha esse mini-formulário</h1>
+                    <h1 className="text-[30px] text-white text-center lg:text-white lg:text-[50px] font-black p-2 mt-4 ">Para melhor experiência preencha esse mini-formulário</h1>
 
                     <ValidateForm />
                 </div>

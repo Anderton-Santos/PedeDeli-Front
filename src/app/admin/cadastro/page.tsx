@@ -58,7 +58,7 @@ export default function Cadastro() {
                                 <input
                                     type="text"
                                     placeholder="DIGITE SEU NOME"
-                                    className="border-1 w-80 h-12 bg-white p-2 "
+                                    className="w-68 lg:block border-1 lg:w-80 h-12 bg-white p-2 "
                                     name="name"
                                 />
                             </div>
@@ -68,7 +68,7 @@ export default function Cadastro() {
                                 <input
                                     type="text"
                                     placeholder="DIGITE SEU EMAIL"
-                                    className="border-1 w-80 h-12 bg-white p-2 "
+                                    className="w-68 lg:block border-1 lg:w-80 h-12 bg-white p-2 "
                                     name="email"
                                 />
                             </div>
@@ -78,7 +78,7 @@ export default function Cadastro() {
                                 <input
                                     type="password"
                                     placeholder="DIGITE SUA SENHA"
-                                    className="border-1 w-80 h-12 bg-white p-2 "
+                                    className="w-68 lg:block border-1 lg:w-80 h-12 bg-white p-2 "
                                     name="password"
                                 />
                             </div>

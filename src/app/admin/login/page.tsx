@@ -62,7 +62,7 @@ export default function Login() {
             <div className="w-full lg:flex bg-[#f5efe7] lg:w-1/2   ">
                 <section>
 
-                    <div className="text-center lg:flex flex-col text-6xl font-black p-12">
+                    <div className="text-center text-black text-5xl lg:flex flex-col lg:text-6xl font-black p-12">
                         <span>Olá, seja bem vindo(a), Deseja </span>
                         <span>Fazer Login:</span>
                     </div>
@@ -75,7 +75,7 @@ export default function Login() {
                                     name="email"
                                     type="text"
                                     placeholder="DIGITE SEU EMAIL"
-                                    className="border-1 w-80 h-12 bg-white p-2"
+                                    className="w-68 lg:block border-1 lg:w-80 h-12 bg-white p-2"
                                 />
                             </div>
 
@@ -85,7 +85,7 @@ export default function Login() {
                                     name="password"
                                     type="password"
                                     placeholder="DIGITE SUA SENHA"
-                                    className="border-1 w-80 h-12 bg-white p-2"
+                                    className="w-68 lg:block border-1 lg:w-80 h-12 bg-white p-2"
                                 />
                             </div>
 

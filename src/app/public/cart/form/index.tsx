@@ -1,101 +1,4 @@
-// import { useForm } from "react-hook-form";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { z } from 'zod';
 
-// // schema
-// const FormOrderSchema = z.object({
-//     name: z.string().min(8, "Nome deve conter no mínimo 8 caracteres"),
-//     description: z.string().optional(),
-//     date: z.string()
-//         .refine(val => !isNaN(Date.parse(val)), { message: "Data inválida" })
-// });
-
-// // tipo inferido do schema
-// type FormOrderSchemaType = z.infer<typeof FormOrderSchema>;
-
-// // Componente
-// export function ValidateForm() {
-//     const {
-//         register,
-//         handleSubmit,
-//         formState: { errors },
-//         reset,
-//     } = useForm<FormOrderSchemaType>({
-//         resolver: zodResolver(FormOrderSchema)
-//     });
-
-
-//     const onSubmit = (data: FormOrderSchemaType) => {
-//         const parsedDate = new Date(data.date);
-//         const formattedDate = parsedDate.toLocaleDateString("pt-BR");
-
-//         const message = `*Novo Pedido Recebido*%0A
-//         *Nome:* ${data.name}%0A
-//         *Data desejada:* ${formattedDate}%0A
-//         *Observações:* ${data.description || "Nenhuma"}%0A`;
-
-//         const phone = "5579996931192"; 
-//         const whatsappURL = `https://wa.me/${phone}?text=${message}`;
-
-//         window.open(whatsappURL, '_blank');
-//         reset();
-//     };
-
-//     return (
-//         <>
-//             <form
-//                 className="w-[60%] h-[40%] mx-auto flex flex-col"
-//                 id="meu-form"
-//                 onSubmit={handleSubmit(onSubmit)}
-//             >
-//                 <div className="flex flex-col justify-center items-center h-full gap-8 border p-4">
-//                     {/* Nome */}
-//                     <div className="flex flex-col gap-2">
-//                         <label className="text-[20px] font-extrabold text-white">Digite seu nome:</label>
-//                         <input
-//                             {...register("name")}
-//                             type="text"
-//                             className="border border-white w-64 h-8 p-2"
-//                         />
-//                         {errors.name && (
-//                             <p className="text-red-500">{errors.name.message}</p>
-//                         )}
-//                     </div>
-
-//                     {/* Data */}
-//                     <div className="flex flex-col items-center gap-2 ">
-//                         <label className="text-[20px] font-extrabold text-white">Selecione a data desejada:</label>
-//                         <input
-//                             {...register("date")}
-//                             type="date"
-//                             className="w-[70%]"
-//                         />
-//                         {errors.date && (
-//                             <p className="text-red-500">{errors.date.message}</p>
-//                         )}
-//                     </div>
-
-//                     {/* Observação */}
-//                     <textarea
-//                         {...register("description")}
-//                         placeholder="Alguma Observação?"
-//                         className="border border-white w-[90%] h-[40%] text-white text-2xl p-2"
-//                     ></textarea>
-//                 </div>
-//             </form>
-
-//             <div>
-//                 <button
-//                     className="bg-amber-300 text-3xl font-black py-2 px-6 w-full"
-//                     type="submit"
-//                     form="meu-form"
-//                 >
-//                     Finalizar Pedido
-//                 </button>
-//             </div>
-//         </>
-//     );
-// }
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -107,7 +10,8 @@ import { CartContext } from "@/context/CartContext";
 const FormOrderSchema = z.object({
   name: z.string().min(8, "Nome deve conter no mínimo 8 caracteres"),
   description: z.string().optional(),
-  date: z.string().refine(val => !isNaN(Date.parse(val)), { message: "Data inválida" })
+  address: z.string().optional(),
+  // date: z.string().refine(val => !isNaN(Date.parse(val)), { message: "Data inválida" })
 });
 
 type FormOrderSchemaType = z.infer<typeof FormOrderSchema>;
@@ -130,7 +34,7 @@ export function ValidateForm() {
       return;
     }
 
-    const formattedDate = new Date(data.date).toLocaleDateString("pt-BR");
+    // const formattedDate = new Date(data.date).toLocaleDateString("pt-BR");
 
     const cartItemsMessage = cart
       .map(item => `• ${item.name} (x${item.amount})`)
@@ -138,7 +42,7 @@ export function ValidateForm() {
 
     const message = `*Novo Pedido*%0A
       *👤 Nome:* ${data.name}%0A
-      *📆 Data:* ${formattedDate}%0A
+      *📆 Endereço:* ${data.address}%0A
       *🧾 Itens:*%0A${cartItemsMessage}%0A
       *🗒️ Observações:* ${data.description || "Nenhuma"}%0A
       *💵 *Total do pedido:* ${total}%0A`;
@@ -171,13 +75,14 @@ export function ValidateForm() {
           </div>
 
           <div className="flex flex-col items-center gap-2">
-            <label className="text-[20px] font-extrabold text-black">Selecione a data desejada:</label>
+            <label className="text-[20px] font-extrabold text-black">Digite seu Endereço:</label>
             <input
-              {...register("date")}
-              type="date"
-              className="w-[70%] border border-black p-1 text-black"
+              {...register("address")}
+              type="text"
+              placeholder="Incluir número da residência"
+              className="w-64 h-8 p-2 border border-black  text-black"
             />
-            {errors.date && <p className="text-red-500">{errors.date.message}</p>}
+            {errors.address && <p className="text-red-500">{errors.address.message}</p>}
           </div>
 
           <textarea
